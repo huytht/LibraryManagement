@@ -47,7 +47,7 @@
                         </i>
                     </div>
                     <a href="index.php?p=<?php echo $tab["TABLE_NAME"] ?>-list" class="small-box-footer">
-                        More info <i class="fas fa-arrow-circle-right"></i>
+                        Xem thêm <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
                 <!-- /small card -->

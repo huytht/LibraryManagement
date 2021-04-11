@@ -1,19 +1,17 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+        <div class="row">
+            <div class="col">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="fas fa-none"><a href="index.php">Home &nbsp;</a></li>
 
                     <?php
                     if (isset($_GET["p"])){
                         $p = $_GET["p"];
                         $arr = explode('-', $p);
                     ?>
-                    <li class="breadcrumb-item"><a href="index.php?p=<?php echo $arr[0]?>-list"><?php echo ucfirst($arr[0]) ?></a></li>
+                    <li class="fas fa-angle-right"><a href="index.php?p=<?php echo $arr[0]?>-list"><?php echo " ". ucfirst($arr[0]) ?></a></li>
                     <?php
                     }
                     ?>

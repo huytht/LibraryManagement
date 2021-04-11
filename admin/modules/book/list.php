@@ -1,5 +1,5 @@
 <div class="card">
-    <div class="card-header">
+    <div class="card-header text-nowrap">
         <h3 class="card-title">Danh sách các cuốn sách</h3>
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -10,7 +10,7 @@
     </div>
 
     <div class="card-body">
-        <table id="dataTable" class="table table-bordered table-hover nowrap" style="text-align: center;">
+        <table id="dataTableBook" class="table table-bordered table-hover text-nowrap" style="text-align: center;">
             <thead>
                 <tr>
                     <th>STT</th>

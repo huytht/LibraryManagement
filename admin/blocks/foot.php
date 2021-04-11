@@ -45,13 +45,21 @@
    
     $(document).ready(function() {
         $('#dataTable').DataTable( {
-            "scrollY": 200,
             "scrollX": true,
             "paging": true,
             "lengthChange": true,
             "searching": true,
             "ordering": true,
-            "autoWidth": true,
+            "width": auto
+        });
+    });
+    $(document).ready(function() {
+        $('#dataTableBook').DataTable( {
+            "scrollX": true,
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
         });
     });
     $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
