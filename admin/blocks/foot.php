@@ -45,12 +45,10 @@
    
     $(document).ready(function() {
         $('#dataTable').DataTable( {
-            "scrollX": true,
             "paging": true,
             "lengthChange": true,
             "searching": true,
             "ordering": true,
-            "width": auto
         });
     });
     $(document).ready(function() {

@@ -1,33 +1,27 @@
 <?php
 if (isset($_POST["create"])) {
     $errors = array();
-    $data["id"] = $_POST["id"];
+    $data["username"] = $_POST["username"];
     if (empty($_POST["fullname"])) {
-        $errors[] = "<li>Vui lòng nhập họ và tên sinh viên</li>";
-    }
-    if (empty($_POST["id"])) {
-        $errors[] = "<li>Vui lòng nhập MSSV</li>";
+        $errors[] = "<li>Vui lòng nhập họ và tên </li>";
     }
     if (empty($_POST["email"])) {
         $errors[] = "<li>Vui lòng nhập email</li>";
     }
-    if (empty($_POST["phone"])) {
-        $errors[] = "<li>Vui lòng nhập SĐT</li>";
+    if (empty($_POST["username"])) {
+        $errors[] = "<li>Vui lòng nhập tên tài khoản</li>";
     }
-    if (checkStudentExist($conn, $data)) {
+    if (checkAdminExist($conn, $data)) {
         $errors[] = "<li>Tài khoản đã tồn tại</li>";
     }
     if (empty($errors)) {
         $data["fullname"] = $_POST["fullname"];
         $data["email"] = $_POST["email"];
-        $data["phone"] = $_POST["phone"];
-        $data["reg_date"] = time();
-        $data["updation_date"] = time();
         $data["password"] = "Abcd@1234";
         $data["status"] = $_POST["status"];
 
-        createStudentAccount($conn, $data);
-        header("location: index.php?p=student-list");
+        createAdminAccount($conn, $data);
+        header("location: index.php?p=admin-list");
         exit();
        
     } else
@@ -43,7 +37,7 @@ if (isset($_POST["create"])) {
 <form role="form" method="POST" enctype="multipart/form-data">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Tạo tài khoản sinh viên</h3>
+            <h3 class="card-title">Tạo tài khoản admin</h3>
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fas fa-minus"></i></button>
@@ -53,10 +47,6 @@ if (isset($_POST["create"])) {
         </div>
         <div class="card-body">
             <div class="form-group">
-                <label>Mã số sinh viên</label>
-                <input type="text" class="form-control" name="id" placeholder="Nhập mã số sinh viên" <?php if (isset($_POST["id"])) echo 'value="' . $_POST["id"] . '"' ?>>
-            </div>
-            <div class="form-group">
                 <label>Họ và tên</label>
                 <input type="text" class="form-control" name="fullname" placeholder="Nhập họ và tên" <?php if (isset($_POST["fullname"])) echo 'value="' . $_POST["fullname"] . '"' ?>>
             </div>
@@ -65,8 +55,8 @@ if (isset($_POST["create"])) {
                 <input type="text" class="form-control" name="email" placeholder="Nhập email" <?php if (isset($_POST["email"])) echo 'value="' . $_POST["email"] . '"' ?>>
             </div>
             <div class="form-group">
-                <label>Số điện thoại</label>
-                <input type="text" class="form-control" name="phone" placeholder="Nhập số điện thoại" <?php if (isset($_POST["phone"])) echo 'value="' . $_POST["phone"] . '"' ?>>
+                <label>Username</label>
+                <input type="text" class="form-control" name="username" placeholder="Nhập tên tài khoản" <?php if (isset($_POST["username"])) echo 'value="' . $_POST["username"] . '"' ?>>
             </div>
             <div class="form-group">
                 <label>Trạng thái</label>

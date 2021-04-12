@@ -1,35 +1,27 @@
 <?php
 if (!isset($_GET["id"])) {
-    header("location:index.php?p=student-list");
+    header("location:index.php?p=admin-list");
     exit();
 } else {
     $id = $_GET["id"];
-    $old = getDataStudentById($conn, $id);
+    $old = getDataAdminById($conn, $id);
     if (isset($_POST["edit"])) {
         $errors = array();
         $data["id"] = $id;
     if (empty($_POST["fullname"])) {
-        $errors[] = "<li>Vui lòng nhập họ và tên sinh viên</li>";
-    }
-    if (empty($_POST["id"])) {
-        $errors[] = "<li>Vui lòng nhập MSSV</li>";
+        $errors[] = "<li>Vui lòng nhập họ và tên</li>";
     }
     if (empty($_POST["email"])) {
         $errors[] = "<li>Vui lòng nhập email</li>";
-    }
-    if (empty($_POST["phone"])) {
-        $errors[] = "<li>Vui lòng nhập SĐT</li>";
     }
 
     if (empty($errors)) {
         $data["fullname"] = $_POST["fullname"];
         $data["email"] = $_POST["email"];
-        $data["phone"] = $_POST["phone"];
-        $data["updation_date"] = time();
         $data["status"] = $_POST["status"];
 
-        editStudentDetail($conn, $data);
-        header("location: index.php?p=student-list");
+        editAdminDetail($conn, $data);
+        header("location: index.php?p=admin-list");
         exit();
     } else
 ?>
@@ -55,11 +47,6 @@ if (!isset($_GET["id"])) {
         </div>
         <div class="card-body">
             <div class="form-group">
-                <label>Mã số sinh viên</label>
-                <input type="text" class="form-control" name="id" placeholder="Nhập mã số sinh viên" <?php if (isset($_POST["id"])) echo 'value="' . $_POST["id"] . '"';
-                                                                                                        else echo 'value="' . $old["id"] . '"' ?>>
-            </div>
-            <div class="form-group">
                 <label>Họ và tên</label>
                 <input type="text" class="form-control" name="fullname" placeholder="Nhập họ và tên" <?php if (isset($_POST["fullname"])) echo 'value="' . $_POST["fullname"] . '"';
                                                                                                         else echo 'value="' . $old["fullname"] . '"' ?>>
@@ -68,11 +55,6 @@ if (!isset($_GET["id"])) {
                 <label>Email</label>
                 <input type="text" class="form-control" name="email" placeholder="Nhập email" <?php if (isset($_POST["email"])) echo 'value="' . $_POST["email"] . '"';
                                                                                                         else echo 'value="' . $old["email"] . '"' ?>>
-            </div>
-            <div class="form-group">
-                <label>Số điện thoại</label>
-                <input type="text" class="form-control" name="phone" placeholder="Nhập số điện thoại" <?php if (isset($_POST["phone"])) echo 'value="' . $_POST["phone"] . '"';
-                                                                                                        else echo 'value="' . $old["phone"] . '"' ?>>
             </div>
             <div class="form-group">
                 <label>Trạng Thái</label>

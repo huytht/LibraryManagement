@@ -1,5 +1,27 @@
+<?php
+    if (isset($_POST["login"])) {
+        $errors = array();
+        if (empty($_POST["username"])) {
+            $errors[] = "<li>Vui lòng nhập tên tài khoản </li>";
+        }
+        if (empty($_POST["password"])) {
+            $errors[] = "<li>Vui lòng nhập mật khẩu</li>";
+        }
+        if (!loginAdmin($conn, $_POST['username'], md5($_POST['password'])))
+            $errors[] = "<li>Sai tài khoản hoặc mật khẩu</li>";
+        if (empty($errors) && loginAdmin($conn, $_POST['username'], md5($_POST['password']))){
+            $_SESSION['username'] = $_POST['username'];
+            echo $_POST['username'];
+            header('location: index.php');
+            exit();
+        } else {
+            echo "<script>alert('<ul>". print_r($errors)."</ul>')</script>";
+        }
+
+    }
+?>
 <div class="login-logo">
-    <a href="../../index2.html"><b>Quản lí thư viện</b> </a>
+    <a href="#"><b>Quản lí thư viện</b> </a>
 </div>
 <!-- /.login-logo -->
 <div class="card">
@@ -8,15 +30,15 @@
 
         <form action="#" method="post">
             <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="text" name="username" class="form-control" placeholder="Username">
                 <div class="input-group-append">
                     <div class="input-group-text">
-                        <span class="fas fa-envelope"></span>
+                        <span class="fas fa-user"></span>
                     </div>
                 </div>
             </div>
             <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" class="form-control" placeholder="Password">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-lock"></span>
@@ -24,28 +46,20 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-7">
-                    <div class="icheck-primary">
-                        <input type="checkbox" id="remember">
-                        <label for="remember">
-                            Remember Me
-                        </label>
-                    </div>
-                </div>
                 <!-- /.col -->
-                <div class="col-5">
-                    <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+                <div class="col">
+                    <button type="submit" name="login" class="btn btn-primary btn-block">Đăng nhập</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
 
-        <p class="mb-1">
+        <!-- <p class="mb-1">
             <a href="forgot-password.html">Quên mật khẩu</a>
         </p>
         <p class="mb-0">
             <a href="register.html" class="text-center">Đăng kí tài khoản mới</a>
-        </p>
+        </p> -->
     </div>
     <!-- /.login-card-body -->
 </div>

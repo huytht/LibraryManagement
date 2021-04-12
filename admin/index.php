@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	ob_start();
 	include '../library/config.php';
 	include '../library/connect.php';
@@ -11,6 +12,10 @@
 	include 'models/student.php';
 	include 'models/issuedbook.php';
 	include 'models/admin.php';
+	if (empty($_SESSION['username'])) {
+		header('location: login.php');
+		exit();
+	} else {
 ?>
 <!doctype html>
 <html>
@@ -25,9 +30,6 @@
         <!-- Navbar	-->
         <?php include "blocks/navbar.php"?>
         <!-- Navbar	-->
-
-        <!-- Sidebar -->
-        <!-- Sidebar -->
 
         <!-- Content -->
         <div class="content-wrapper">
@@ -163,3 +165,6 @@
 </body>
 
 </html>
+<?php
+	}
+?>

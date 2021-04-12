@@ -2,11 +2,11 @@
 if (isset($_GET["id"])){
     $id = $_GET["id"];
     
-    deleteAccountStudent($conn, $id);
-    header('location: index.php?p=student-list');
+    deleteAccountAdmin($conn, $id);
+    header('location: index.php?p=admin-list');
     exit();
 } else{
-    header('location: index.php?p=student-list');
+    header('location: index.php?p=admin-list');
     exit();
 }
 

@@ -16,7 +16,7 @@
         $stmt = $conn->prepare("INSERT INTO student (id, fullname, password, email, phone, status, reg_date, updation_date) VALUES(:id, :fullname, :password, :email, :phone, :status, :reg_date, :updation_date)");
         $stmt->bindParam(":id", $data["id"], PDO::PARAM_STR);
         $stmt->bindParam(":fullname", $data["fullname"], PDO::PARAM_STR);
-        $stmt->bindParam(":password", $data["password"], PDO::PARAM_STR);
+        $stmt->bindParam(":password", md5($data["password"]), PDO::PARAM_STR);
         $stmt->bindParam(":email", $data["email"], PDO::PARAM_STR);
         $stmt->bindParam(":phone", $data["phone"], PDO::PARAM_STR);
         $stmt->bindParam(":status", $data["status"], PDO::PARAM_INT);
