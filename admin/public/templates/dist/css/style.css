@@ -1,4 +1,7 @@
-* {
+.content-wrapper, .main-header {
     margin-left: 0 !important;
     font-family: 'Times New Roman', Times, serif;
+}
+.form-check-input{
+    margin-left: -1.25rem;
 }

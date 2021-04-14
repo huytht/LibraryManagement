@@ -4,18 +4,10 @@
 <script src="public/templates/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="public/templates/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="public/templates/dist/js/demo.js"></script>
 <!-- Plugin jQuery & Boostrap multiselect -->
 <script src="public/templates/plugins/jQuery-Multiple-Select-Plugin/dist/js/bootstrap-multiselect.js"></script>
 <script src="public/templates/plugins/jQuery-Multiple-Select-Plugin/dist/js/bootstrap-multiselect.min.js"></script>
-<link rel="stylesheet" href="public/templates/plugins/jQuery-Multiple-Select-Plugin/dist/css/bootstrap-multiselect.min.css" />
-<link rel="stylesheet" href="public/templates/plugins/jQuery-Multiple-Select-Plugin/dist/css/bootstrap-multiselect.css" type="text/css">
 
-
-<!-- JS & CSS library of MultiSelect plugin -->
-<script src="multiselect/jquery.multiselect.js"></script>
-<link rel="stylesheet" href="multiselect/jquery.multiselect.css">
 <!-- DataTables  & Plugins -->
 <script src="public/templates/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="public/templates/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -36,8 +28,12 @@
 <script type="text/javascript">
     $('#cateGroup').multiselect({
         enableFiltering: true,
-        selectAllText: true,
-        selectAllValue:'multiselect-all',
+        enableCollapsibleOptGroups: true,
+        nonSelectedText: 'Chọn thể loại',
+        delimiterText: '- ',
+        filterPlaceholder: 'Tìm kiếm',
+        maxHeight: 300,
+        numberDisplayed: 3
     });
     $('#author, #shelf, #category').multiselect({
         enableFiltering: true

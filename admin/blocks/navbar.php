@@ -10,7 +10,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index.php" class="nav-link"> <i class="fas fa-home"></i> Home</a>
+                <img src="public/images/images/logo.PNG" width="100px" height="30px" alt="">
             </li>
 
         </ul>

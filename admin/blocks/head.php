@@ -11,3 +11,6 @@
   <link rel="stylesheet" href="public/templates/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="public/templates/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="public/templates/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Multiselect -->
+<link rel="stylesheet" href="public/templates/plugins/jQuery-Multiple-Select-Plugin/dist/css/bootstrap-multiselect.min.css" type="text/css"/>
+  <link rel="stylesheet" href="public/templates/plugins/jQuery-Multiple-Select-Plugin/dist/css/bootstrap-multiselect.css" type="text/css"/>
