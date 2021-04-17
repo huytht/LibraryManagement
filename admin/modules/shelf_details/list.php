@@ -11,10 +11,10 @@
 
     <div class="card-body">
         <table id="dataTable" class="table table-bordered table-hover nowrap" style="text-align: center;">
-            <thead>
+        <thead>
                 <tr>
+                    <th>STT</th>
                     <th>ID</th>
-                    
                     <th>Vị trí</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -22,15 +22,14 @@
             </thead>
             <tbody>
                 <?php
-                $data = getShelfList($conn);
+                $data =  getShelfList($conn);
                 $stt = 0;
                 foreach ($data as $item) {
                     $stt++;
                 ?>
                     <tr>
                         <td><?php echo $stt ?></td>
-                        
-                        
+                        <td><?php echo $item["id"] ?></td>
                         
                         <?php
                         $shelf = getShelfById($conn, $item["id"]);
@@ -41,9 +40,9 @@
                         <td><a onclick="return acceptDelete('Do you really want to delete this shelf?')" href="index.php?p=shelf_details-delete&id=<?php echo $item["id"] ?>"><i class="fa fa-trash"></i></a></td>
                     </tr>
                 <?php } ?>
-            </tbody>
-        </table>
-    </div>
+                </tbody>
+            </table>
+        </div>
 
     <!-- /.card-body -->
     <div class="card-footer">
