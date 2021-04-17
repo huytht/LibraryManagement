@@ -14,8 +14,8 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Số tầng</th>
-                    <th>Số kệ</th>
+                    
+                    <th>Vị trí</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -29,7 +29,7 @@
                 ?>
                     <tr>
                         <td><?php echo $stt ?></td>
-                        <td><?php echo $item["id"] ?></td>
+                        
                         
                         
                         <?php
