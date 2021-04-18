@@ -2,7 +2,7 @@
 //Create new author
 function createAuthor($conn, $data){
     $stmt = $conn->prepare("INSERT INTO author (fullname, description) VALUES(:fullname, :description)");
-    $stmt->bindParam(":fullname", $data["fullname"], PDO::PARAM_INT);
+    $stmt->bindParam(":fullname", $data["fullname"], PDO::PARAM_STR);
     $stmt->bindParam(":description", $data["description"], PDO::PARAM_STR);
     $stmt->execute();
 }

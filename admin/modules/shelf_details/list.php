@@ -14,7 +14,6 @@
         <thead>
                 <tr>
                     <th>STT</th>
-                    <th>ID</th>
                     <th>Vị trí</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -29,7 +28,6 @@
                 ?>
                     <tr>
                         <td><?php echo $stt ?></td>
-                        <td><?php echo $item["id"] ?></td>
                         
                         <?php
                         $shelf = getShelfById($conn, $item["id"]);

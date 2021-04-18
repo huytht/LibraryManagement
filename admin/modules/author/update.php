@@ -50,7 +50,9 @@ if (!isset($_GET["id"])) {
             </div>
             <div class="form-group">
                 <label>Mô tả</label>
-                <input type="text" class="form-control" name="description" placeholder="Nhập mô tả" <?php if (isset($_POST["description"])) echo 'value="' . $_POST["description"] . '"'; else echo 'value="' . $author["description"] . '"' ?>>
+                <textarea class="form-control" name="description" placeholder="Nhập mô tả">
+                    <?php if (isset($_POST["description"])) echo $_POST["description"]; else echo $author["description"]; ?>
+                </textarea>
             </div>
             
         <!-- /.card-body -->
