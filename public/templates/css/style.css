@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+    height: 40px;
+}
+
+.w-100 {
+    width: 100%!important;
+    height: 250px !important;
+}
+/* xu li menu */
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color:#f5f5f5;
+
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+.dropdown-item  {
+    display: block;
+    width: 100%;
+     padding: .0rem 0rem  !important;
+    clear: both;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #386897;
+    border: 0;
+}
+
+
+/*product card*/
+.card-book{
+	width: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+	overflow: hidden;
+	position: relative;
+}
+.book-title{
+	margin-bottom: 0.25rem;
+}
+
+
+
+.btn-detail{
+	border: 1px solid #3a5c83 !important;
+}
+.btn-detail:hover{
+	color: white !important;
+	background-color: #3a5c83 !important;
+}
+.sale-sticky{
+	color: white;
+	background-color: #f90;
+	display: block;
+	text-align: center;
+	width: 120px;
+	position: absolute;
+	top: 11px;
+    right: -39px;
+	transform: rotate(45deg);
+}
+.card-img-top {
+    height: 100%;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+}
+/* footer */
+
