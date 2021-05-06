@@ -1,0 +1,137 @@
+#main{
+    width: 100%;
+    height: 1300px;
+    background: white ;
+    margin-top: 20px;
+}
+#main .main {
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    background: #DDDDDD;
+}
+#main .main .left{
+    width: 80%;
+    height: 100%;
+    float: left;
+    padding-right: 20px;
+    background: white;
+}
+
+/*topleft*/
+#main .main .left .topleft{
+    width: 100%;
+    height: 200px;
+    background: white;
+    margin-left: 40px;
+    
+}
+.Category {
+    text-align: center;
+    width: 90%;
+    height: 80px;
+    background: #DDDDDD;
+    border-radius: 90px 90px 0 0;
+}
+.Category > h2{
+    font-family: "Little Summer";
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px;
+}
+
+.search-sort {
+    width: 40%;
+    height: 255px;
+    background: white;
+    float: left;
+}
+.listmenu{
+    background: white;
+    float: left;
+}
+.listmenu #listchoose{
+    padding-top: 30px;
+}
+.listmenu a{
+    font-family: "Times New Roman";
+    font-weight: bold;
+}
+.listmenu input.ip {
+    width: 100px;
+}
+input{
+    width: 250px;
+}
+button{
+    background: turquoise;
+    width: 70px;
+    height: 40px;
+    border-radius: 9px;
+    margin-left: 50px;
+    border: 1px solid rgb(12, 12, 70);
+}
+
+/*topleft*/
+
+/*mainleft*/
+
+/*mainleft*/
+
+#main  .main .right{
+      width: 20%;
+      height: 100%;
+      float: left;
+      background: white;  
+}
+#main .main .right .root p{
+    background: #07507a;
+    height: 50px;
+    margin-top: 0px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 50px;
+    color: white;
+    border-radius: 10px 10px 0px 0px;
+    
+}
+#main .main .right .root ul.submenu{
+    width: 100%;
+    min-height: 150px;
+    background: rgb(187, 239, 252);
+    border-radius: 0 0 10px 10px;
+    
+}
+#main .main .right .root ul.submenu {
+    margin: -15px 0px 0px  0px;
+    padding: 0px;
+
+}
+#main .main .right .root ul.submenu li{
+    
+    list-style: none;
+    border-radius: 3px 3px 3px 3px;
+}
+#main .main .right .root ul.submenu  li a{
+    text-decoration: none;
+    border-bottom: 2px solid white;
+    color:white;
+    line-height: 40px;
+    display: block;
+    text-indent: 10px;
+    text-align: center;
+}
+#main .main .right .root ul.submenu  li a:hover{
+    background: rgb(61, 61, 173) ;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+

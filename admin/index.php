@@ -11,6 +11,7 @@
 	include 'models/dashboard.php';
 	include 'models/student.php';
 	include 'models/issuedbook.php';
+	include 'models/issuedbook_detail.php';
 	include 'models/admin.php';
 	if (empty($_SESSION['username'])) {
 		header('location: login.php');
@@ -141,6 +142,16 @@
 							break;
 						case 'admin-delete':
 							include 'modules/admin/delete.php';
+							break;
+						//issuedbook_detail
+						case 'issuedbook_detail-list':
+							include 'modules/issuedbook_detail/list.php';
+							break;
+						case 'issuedbook_detail-update':
+							include 'modules/issuedbook_detail/update.php';
+							break;
+						case 'issuedbook_detail-delete':
+							include 'modules/issuedbook_detail/delete.php';
 							break;
 						//default
 						default: include 'modules/dashboard/index.php';

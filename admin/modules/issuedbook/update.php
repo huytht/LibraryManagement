@@ -7,9 +7,6 @@ if (!isset($_GET["id"])) {
     $old = getDataIssuedBookById($conn, $id);
     if (isset($_POST["edit"])) {
         $errors = array();
-        if (empty($_POST["isbn"])) {
-            $errors[] = "<li>Vui lòng nhập ISBN</li>";
-        }
         if (empty($_POST["student_id"])) {
             $errors[] = "<li>Vui lòng nhập MSSV</li>";
         }
@@ -25,19 +22,14 @@ if (!isset($_GET["id"])) {
         if ($_POST["return_date"] < $_POST["issues_date"]) {
             $errors[] = "<li>Ngày trả phải sau ngày mượn</li>";
         }
-        if (checkBookIssuedForEdit($conn, $_POST["isbn"], $id)) {
-            $errors[] = "<li>Cuốn sách mã " .$_POST["isbn"]. " đang được mượn</li>";
-            $errors[] = "<li>Vui lòng nhập ISBN khác</li>";
-        }
         if (empty($errors)) {
             $data["id"] = $id;
-            $data["isbn"] = $_POST["isbn"];
             $data["student_id"] = $_POST["student_id"];
             $data["issues_date"] = strtotime($_POST["issues_date"]);
             $data["return_date"] = strtotime($_POST["return_date"]);
             $data["return_status"] = $_POST["return_status"];
 
-            editIssuedBookDetail($conn, $data);
+            editIssuedBook($conn, $data);
             header("location: index.php?p=issuedbook-list");
             exit();
         } else
@@ -63,11 +55,6 @@ if (!isset($_GET["id"])) {
             </div>
         </div>
         <div class="card-body">
-            <div class="form-group">
-                <label>ISBN</label>
-                <input type="text" class="form-control" name="isbn" placeholder="Nhập ISBN" <?php if (isset($_POST["isbn"])) echo 'value="' . $_POST["isbn"] . '"';
-                                                                                                        else echo 'value="' . $old["isbn"] . '"' ?>>
-            </div>
             <div class="form-group">
                 <label>Mã số sinh viên</label>
                 <input type="text" class="form-control" name="student_id" placeholder="Nhập mã số sinh viên" <?php if (isset($_POST["student_id"])) echo 'value="' . $_POST["student_id"] . '"';

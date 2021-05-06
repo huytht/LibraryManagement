@@ -30,6 +30,9 @@
                                 case "issuedbook": 
                                     echo " Thông tin mượn sách";
                                     break;
+                                case "issuedbook_detail": 
+                                    echo " Thông tin chi tiết mượn sách";
+                                    break;
                                 case "shelf_details": 
                                     echo " Thông tin kệ sách";
                                     break;

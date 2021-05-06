@@ -77,6 +77,19 @@ function editBook($conn, $data){
 
     $stmt->execute();
 }
+//change status true
+function changeStatus($conn, $isbn){
+    $stmt = $conn->prepare("UPDATE book SET status = 1 WHERE isbn = :isbn");
+    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_INT);
+    $stmt->execute();
+}
+//set status
+function setStatus($conn, $isbn, $status){
+    $stmt = $conn->prepare("UPDATE book SET status = :status WHERE isbn = :isbn");
+    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_INT);
+    $stmt->bindParam(":status", $status, PDO::PARAM_INT);
+    $stmt->execute();
+}
 //Check ISBN Exist for edit
 function checkISBNExistForEdit($conn, $name, $isbn){
     $stmt = $conn->prepare("SELECT * FROM book WHERE name = :name AND isbn != :isbn");
@@ -96,4 +109,12 @@ function deleteBook($conn, $isbn){
     $stmt->bindParam(":isbn", $isbn, PDO::PARAM_INT);
     $stmt->execute();
 }
-?> 
+//Find related book by subcate
+function findRelatedBook($conn, $id){
+    $tmp = "'".'"'.$id.'"'."'";
+    $stmt = $conn->prepare("SELECT * FROM book WHERE JSON_CONTAINS(subcategories, $tmp)");
+    $stmt->execute();
+
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
+}

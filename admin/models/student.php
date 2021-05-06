@@ -61,5 +61,12 @@
 
         $stmt->execute();
     }
+    //get issued book history
+    function getHistoryIssuedBook($conn, $id){
+        $stmt = $conn->prepare("SELECT * FROM issuedbook_detail isd INNER JOIN issuedbook i ON isd.id_issued = i.id INNER JOIN student s ON i.student_id = s.id WHERE s.id = :id");
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 ?>

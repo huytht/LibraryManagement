@@ -28,6 +28,9 @@
                                 case "issuedbook": 
                                     echo "#9c0290";
                                     break;
+                                case "issuedbook_detail": 
+                                    echo "#9c0291";
+                                    break;
                                 case "shelf_details": 
                                     echo "#879956";
                                     break;
@@ -56,6 +59,9 @@
                                 case "issuedbook": 
                                     echo "Thông tin mượn sách";
                                     break;
+                                case "issuedbook_detail": 
+                                    echo "Thông tin chi tiết mượn sách";
+                                    break;
                                 case "shelf_details": 
                                     echo "Thông tin kệ sách";
                                     break;
@@ -82,6 +88,7 @@
                                     echo "list";
                                     break;
                                 case "issuedbook": 
+                                case "issuedbook_detail": 
                                     echo "book-reader";
                                     break;
                                 case "shelf_details": 
