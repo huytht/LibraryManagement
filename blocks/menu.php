@@ -1,6 +1,11 @@
+<?php
+    if (isset($_POST["btnSearch"]) && isset($_POST['txtSearch']) ){
+        header('location: index.php?p=search&keyWord='.$_POST["txtSearch"]);
+    }
+?>
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="admin/public/images/images/logo.PNG"></a>
+        <a class="navbar-brand" href="index.php"><img src="admin/public/images/images/logo.PNG"></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,10 +42,15 @@
                     <a class="nav-link" href="#">Liên hệ</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <div id="suggest_container">
+                <form method="POST" class="form-inline my-2 my-lg-0">
+                    <input id="searchword" name="txtSearch" class="form-control mr-sm-2" autocomplete="off" type="text" placeholder="Search">
+                    <input style="width: 70px;" type="submit" id="btnSearch" name="btnSearch" type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search">
+                </form>
+                <div id="id_suggesstions">
+                </div>
+            </div>
+           
             <?php
                 if (isset($_SESSION['idAccount'])){
             ?>

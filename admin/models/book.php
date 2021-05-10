@@ -36,7 +36,14 @@ function getDataBookList($conn){
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $data;
 }
+function searchBook($conn, $kw){
+    $name = "%".$kw."%";
+    $stmt = $conn->prepare("SELECT b.* FROM book b INNER JOIN author a ON b.author_id = a.id WHERE b.name LIKE :name || a.fullname LIKE :name");
+    $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+    $stmt->execute();
 
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 //get book by isbn
 function getBookByISBN($conn, $isbn){
     $stmt = $conn->prepare("SELECT * FROM book WHERE isbn = :isbn");

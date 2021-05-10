@@ -1,22 +1,16 @@
 <?php
-    $bookList = getDataBookList($conn);
-    $title = "Tất cả thể loại";
-    if (isset($_GET["id"])) {
-        if ($_GET["id"] == "all"){
-            $bookList = getDataBookList($conn);
-            $title = "Tất cả thể loại";
-        } else {
-            $bookList = findRelatedBook($conn, $_GET["id"]);
-            $title = getSubCategoryById($conn, $_GET["id"])["name"];
-        }
-    }
+    // include "./admin/models/book.php";
+    // include "./library/config.php";
+    // include "./library/connect.php";
+    if (!empty($_REQUEST["keyWord"])){
+        $bookList = searchBook($conn, $_REQUEST["keyWord"]); 
 ?>
 <div id="main">
     <div class="main">
         <div class="left">
-            <div class="topleft">
+            <div class="">
                 <div class="Category">
-                    <h2><?php echo $title?></h2>
+                    <h2><?php echo "Tìm truyện"?></h2>
                 </div>
             </div>
             <div class="mainleft">
@@ -72,3 +66,6 @@
         </div>
     </div>
 </div>
+<?php
+    }
+?>

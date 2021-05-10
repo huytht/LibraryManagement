@@ -46,6 +46,9 @@
                 case 'detail':
                     include 'pages/detail.php';
                     break;
+                case 'search':
+                    include 'pages/search.php';
+                    break;
                 default:
                     include 'blocks/content.php';
             }
