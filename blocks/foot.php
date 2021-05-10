@@ -18,4 +18,19 @@
     //     optionsContainer.classList.remove("active");
     // });
     // });
+    $("#btnRD").click(function(){
+        var src = document.getElementById('txtD').innerHTML;
+        $.ajax({
+            url: "pages/api.php",
+            type: 'POST',
+            data: {
+                "source": src
+            },
+            success: function(res){
+                $('audio').attr('src', res);
+                $('audio').get(0).load()
+               $('audio').get(0).play()
+            }
+        })
+    })
 </script>

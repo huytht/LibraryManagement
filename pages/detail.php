@@ -43,11 +43,14 @@
         </div>
     </div>
     <div class="detail-content">
-        <h3 class="list-title">
-            <i class="fa fa-file-text-o"></i>
-            <h3>Nội dung</h3>
+        <h3 style="margin-top: 20px;" class="list-title">
+            Nội dung 
+            <a id="btnRD" style="cursor: pointer" style="margin: 0; border: none; background-color: white">
+                <i class="fas fa-volume-up"></i>
+            </a>
         </h3>
-        <p style="font-size: 20px;"><?php echo $book['description']?></p>
+        <audio preload="none" src=""></audio>
+        <p id="txtD" style="font-size: 20px;"><?php echo $book['description']?></p>
     </div>
     <h3>Sách liên quan</h3>
     <div class="container">
