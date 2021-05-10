@@ -21,7 +21,6 @@
 /*topleft*/
 #main .main .left .topleft{
     width: 100%;
-    height: 200px;
     background: white;
     margin-left: 40px;
     
@@ -127,6 +126,7 @@ button{
     color: white;
     border-radius: 5px;
 }
+
 
 
 

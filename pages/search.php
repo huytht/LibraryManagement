@@ -1,14 +1,11 @@
 <?php
-    // include "./admin/models/book.php";
-    // include "./library/config.php";
-    // include "./library/connect.php";
     if (!empty($_REQUEST["keyWord"])){
         $bookList = searchBook($conn, $_REQUEST["keyWord"]); 
 ?>
 <div id="main">
     <div class="main">
         <div class="left">
-            <div class="">
+            <div class="topleft">
                 <div class="Category">
                     <h2><?php echo "Tìm truyện"?></h2>
                 </div>
