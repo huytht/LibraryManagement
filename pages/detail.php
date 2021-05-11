@@ -44,7 +44,7 @@
     </div>
     <div class="detail-content">
         <h3 style="margin-top: 20px;" class="list-title">
-            Nội dung 
+            Nội dung
             <a id="btnRD" style="cursor: pointer" style="margin: 0; border: none; background-color: white">
                 <i class="fas fa-volume-up"></i>
             </a>

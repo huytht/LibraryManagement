@@ -23,12 +23,12 @@
                             $categories = getDataCategoryList($conn);
                             foreach ($categories as $category) {
                         ?>
-                        <a class="dropdown-item text-danger"><b><?php echo $category["name"] ?></b></a>
+                        <a style="background-color: white;" class="dropdown-item text-danger"><b><?php echo $category["name"] ?></b></a>
                         <?php
                                 $subcategories = getSubCategoryListById($conn, $category["id"]);
                                 foreach ($subcategories as $subcategory) {
                                 ?>
-                        <a class="dropdown-item" href="index.php?p=category&id=<?php echo $subcategory["id"] ?>">
+                        <a style="background-color: white;" class="dropdown-item" href="index.php?p=category&id=<?php echo $subcategory["id"] ?>">
                             <?php echo $subcategory["name"] ?>
                         </a>
                         <?php
@@ -37,9 +37,6 @@
                         </optgroup>
                         <?php } ?>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Liên hệ</a>
                 </li>
             </ul>
             <div id="suggest_container">
