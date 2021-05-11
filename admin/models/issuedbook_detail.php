@@ -1,7 +1,7 @@
 <?php
     function createIssuedBookDetail($conn, $idIssued, $isbn){
         $stmt = $conn->prepare("INSERT INTO issuedbook_detail (id_issued, isbn) VALUES (:id_issued, :isbn)");
-        $stmt->bindParam(":isbn", $isbn, PDO::PARAM_INT);
+        $stmt->bindParam(":isbn", $isbn, PDO::PARAM_STR);
         $stmt->bindParam(":id_issued", $idIssued, PDO::PARAM_INT);
 
         $stmt->execute();
@@ -26,12 +26,12 @@
         $stmt = $conn->prepare("UPDATE issuedbook_detail SET id_issued = :id_issued, isbn = :isbn, return_status = :return_status WHERE id = :id");
         $stmt->bindParam(":id", $data["id"], PDO::PARAM_INT);
         $stmt->bindParam(":id_issued", $data["id_issued"], PDO::PARAM_INT);
-        $stmt->bindParam(":isbn", $data["isbn"], PDO::PARAM_INT);
+        $stmt->bindParam(":isbn", $data["isbn"], PDO::PARAM_STR);
         $stmt->bindParam(":return_status", $data["return_status"], PDO::PARAM_INT);
         $stmt->execute();
         //update book
         $st = $conn->prepare("UPDATE book SET status = 0 WHERE isbn = :isbn");
-        $st->bindParam(":isbn", $data["isbn"], PDO::PARAM_INT);
+        $st->bindParam(":isbn", $data["isbn"], PDO::PARAM_STR);
         $st->execute();
     }
     //Delete issued book detail

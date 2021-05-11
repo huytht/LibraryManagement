@@ -26,7 +26,7 @@
     //check book is issued
     function checkBookIssued($conn, $isbn){
         $stmt = $conn->prepare("SELECT * FROM book WHERE isbn = :isbn AND status = 0");
-        $stmt->bindParam(":isbn", $isbn, PDO::PARAM_INT);
+        $stmt->bindParam(":isbn", $isbn, PDO::PARAM_STR);
         $stmt->execute();
         $rowCount = $stmt->rowCount();
         if ($rowCount == 0){
@@ -62,7 +62,7 @@
     //check book is issued for edit
     function checkBookIssuedForEdit($conn, $isbn, $id){
         $stmt = $conn->prepare("SELECT * FROM book b JOIN issuedbook ib ON b.isbn = ib.isbn WHERE b.isbn = :isbn AND id != :id AND status = 0");
-        $stmt->bindParam(":isbn", $isbn, PDO::PARAM_INT);
+        $stmt->bindParam(":isbn", $isbn, PDO::PARAM_STR);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
         $rowCount = $stmt->rowCount();

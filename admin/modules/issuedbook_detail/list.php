@@ -7,7 +7,7 @@
         $stmt->execute();
         //update book
         $st = $conn->prepare("UPDATE book SET status = :status WHERE isbn = :isbn");
-        $st->bindParam(":isbn", getDataIssuedBookDetailByID($conn, $_REQUEST["id"])["isbn"], PDO::PARAM_INT);
+        $st->bindParam(":isbn", getDataIssuedBookDetailByID($conn, $_REQUEST["id"])["isbn"], PDO::PARAM_STR);
         $st->bindParam(":status", $_REQUEST["status"], PDO::PARAM_INT);
         $st->execute();
         foreach(getDataIssuedBookDetailByIdIssued($conn, $_REQUEST["id"]) as $data) {

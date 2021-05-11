@@ -2,7 +2,7 @@
 //Create new book
 function createBook($conn, $data){
     $stmt = $conn->prepare("INSERT INTO book (isbn, name, subcategories, image, author_id, price, reg_date, updation_date, shelf_id, description) VALUES(:isbn, :name, :subcategories, :image, :author_id, :price, :reg_date, :updation_date, :shelf_id, :description)");
-    $stmt->bindParam(":isbn", $data["isbn"], PDO::PARAM_INT);
+    $stmt->bindParam(":isbn", $data["isbn"], PDO::PARAM_STR);
     $stmt->bindParam(":name", $data["name"], PDO::PARAM_STR);
     $stmt->bindParam(":image", $data["image"], PDO::PARAM_STR);
     $stmt->bindParam(":subcategories", $data["subcategories"], PDO::PARAM_STR);
@@ -19,7 +19,7 @@ function createBook($conn, $data){
 //Check ISBN Exist
 function checkISBNExist($conn, $data){
     $stmt = $conn->prepare("SELECT * FROM book WHERE isbn = :isbn");
-    $stmt->bindParam(":isbn", $data["isbn"], PDO::PARAM_INT);
+    $stmt->bindParam(":isbn", $data["isbn"], PDO::PARAM_STR);
     $stmt->execute();
 
     $count = $stmt->rowCount();
@@ -47,7 +47,7 @@ function searchBook($conn, $kw){
 //get book by isbn
 function getBookByISBN($conn, $isbn){
     $stmt = $conn->prepare("SELECT * FROM book WHERE isbn = :isbn");
-    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_INT);
+    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_STR);
     $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
     return $data;
@@ -57,7 +57,7 @@ function getBookByISBN($conn, $isbn){
 function editBookNoImg($conn, $data){
     $stmt = $conn->prepare("UPDATE book SET name = :name, subcategories = :subcategories, author_id = :author_id, price = :price, updation_date = :updation_date, shelf_id = :shelf_id, description = :description, status = :status WHERE isbn = :isbn");
     $stmt->bindParam(":status", $data["status"], PDO::PARAM_INT);
-    $stmt->bindParam(":isbn", $data["isbn"], PDO::PARAM_INT);
+    $stmt->bindParam(":isbn", $data["isbn"], PDO::PARAM_STR);
     $stmt->bindParam(":name", $data["name"], PDO::PARAM_STR);
     $stmt->bindParam(":subcategories", $data["subcategories"], PDO::PARAM_STR);
     $stmt->bindParam(":price", $data["price"], PDO::PARAM_INT);
@@ -72,7 +72,7 @@ function editBookNoImg($conn, $data){
 function editBook($conn, $data){
     $stmt = $conn->prepare("UPDATE book SET name = :name, subcategories = :subcategories, image = :image, author_id = :author_id, price = :price, updation_date = :updation_date, shelf_id = :shelf_id, description = :description, status = :status WHERE isbn = :isbn");
     $stmt->bindParam(":status", $data["status"], PDO::PARAM_INT);
-    $stmt->bindParam(":isbn", $data["isbn"], PDO::PARAM_INT);
+    $stmt->bindParam(":isbn", $data["isbn"], PDO::PARAM_STR);
     $stmt->bindParam(":name", $data["name"], PDO::PARAM_STR);
     $stmt->bindParam(":image", $data["image"], PDO::PARAM_STR);
     $stmt->bindParam(":subcategories", $data["subcategories"], PDO::PARAM_STR);
@@ -87,20 +87,20 @@ function editBook($conn, $data){
 //change status true
 function changeStatus($conn, $isbn){
     $stmt = $conn->prepare("UPDATE book SET status = 1 WHERE isbn = :isbn");
-    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_INT);
+    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_STR);
     $stmt->execute();
 }
 //set status
 function setStatus($conn, $isbn, $status){
     $stmt = $conn->prepare("UPDATE book SET status = :status WHERE isbn = :isbn");
-    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_INT);
+    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_STR);
     $stmt->bindParam(":status", $status, PDO::PARAM_INT);
     $stmt->execute();
 }
 //Check ISBN Exist for edit
 function checkISBNExistForEdit($conn, $name, $isbn){
     $stmt = $conn->prepare("SELECT * FROM book WHERE name = :name AND isbn != :isbn");
-    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_INT);
+    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_STR);
     $stmt->bindParam(":name", $name, PDO::PARAM_STR);
     $stmt->execute();
 
@@ -113,7 +113,7 @@ function checkISBNExistForEdit($conn, $name, $isbn){
 //Delete book
 function deleteBook($conn, $isbn){
     $stmt = $conn->prepare("DELETE FROM book WHERE isbn = :isbn");
-    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_INT);
+    $stmt->bindParam(":isbn", $isbn, PDO::PARAM_STR);
     $stmt->execute();
 }
 //Find related book by subcate

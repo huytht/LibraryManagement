@@ -12,7 +12,7 @@
         $st->execute();
         //update book
         $stm = $conn->prepare("UPDATE book SET status = :status WHERE isbn = :isbn");
-        $stm->bindParam(":isbn", getDataIssuedBookDetailByID($conn, $_REQUEST["id"])["isbn"], PDO::PARAM_INT);
+        $stm->bindParam(":isbn", getDataIssuedBookDetailByID($conn, $_REQUEST["id"])["isbn"], PDO::PARAM_STR);
         $stm->bindParam(":status", $_REQUEST["status"], PDO::PARAM_INT);
         $stm->execute();
     }
