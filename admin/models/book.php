@@ -125,3 +125,13 @@ function findRelatedBook($conn, $id){
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $data;
 }
+//Find related book by subcate
+function findBook($conn, $id, $index){
+    $tmp = "'".'"'.$id.'"'."'";
+    $stmt = $conn->prepare("SELECT * FROM book WHERE JSON_CONTAINS(subcategories, $tmp) LIMIT :index, 12");
+    $stmt->bindParam(":index", $index, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
+}

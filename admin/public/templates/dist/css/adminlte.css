@@ -587,10 +587,19 @@ pre code {
   }
 }
 
-.row {
+.container .row {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -7.5px;
+  margin-left: -7.5px;
+}
+.container .row .row1 {
+  display: -ms-flex;
+  display: block !important;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -29275,7 +29284,7 @@ html.maximized-card {
 }
 
 .card-title {
-  float: left;
+  padding-bottom: 5px;
   font-size: 1.1rem;
   font-weight: 400;
   margin: 0;
