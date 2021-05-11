@@ -89,7 +89,7 @@
             <div class="root">
                 <p id="title"><b><i class="fas fa-bars"> </i>&nbsp;DANH SÁCH THỂ LOẠI</b></p>
                 <ul class="submenu">
-                    <li><a href="index.php?p=category&id=all">Tất cả sách</a></li>
+                    <li><a class="dropdown-item" href="index.php?p=category&id=all">Tất cả sách</a></li>
                     <?php
                         $categories = getDataCategoryList($conn);
                         foreach ($categories as $category) {

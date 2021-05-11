@@ -75,7 +75,7 @@
             <div class="root">
                 <p id="title"><b><i class="fas fa-bars"> </i>&nbsp;DANH SÁCH THỂ LOẠI</b></p>
                 <ul class="submenu">
-                    <li><a href="index.php?p=category&id=all">Tất cả sách</a></li>
+                    <li><a class="dropdown-item" href="index.php?p=category&id=all">Tất cả sách</a></li>
                     <?php
                         $categories = getDataCategoryList($conn);
                         foreach ($categories as $category) {
@@ -102,7 +102,6 @@
 <div class="page">
     <ul class="pagination">
     <?php
-    
         for ($i = 1  ; $i <= $pages; $i++){
             if ($i != $current_page)
                 echo '<li><a style="border: 1px solid black; padding: 5px; margin-right: 5px" href="index.php?p=search&keyWord='.$_REQUEST['keyWord'].'&page='.$i.'">'.$i.'</a></li>';
