@@ -23,12 +23,14 @@
                             $categories = getDataCategoryList($conn);
                             foreach ($categories as $category) {
                         ?>
-                        <a style="background-color: white;" class="dropdown-item text-danger"><b><?php echo $category["name"] ?></b></a>
+                        <a style="background-color: white;"
+                            class="dropdown-item text-danger"><b><?php echo $category["name"] ?></b></a>
                         <?php
                                 $subcategories = getSubCategoryListById($conn, $category["id"]);
                                 foreach ($subcategories as $subcategory) {
                                 ?>
-                        <a style="background-color: white;" class="dropdown-item" href="index.php?p=category&id=<?php echo $subcategory["id"] ?>">
+                        <a style="background-color: white;" class="dropdown-item"
+                            href="index.php?p=category&id=<?php echo $subcategory["id"] ?>">
                             <?php echo $subcategory["name"] ?>
                         </a>
                         <?php
@@ -41,27 +43,31 @@
             </ul>
             <div id="suggest_container">
                 <form method="POST" class="form-inline my-2 my-lg-0">
-                    <input id="searchword" name="txtSearch" class="form-control mr-sm-2" autocomplete="off" type="text" placeholder="Search">
-                    <input style="width: 70px;" type="submit" id="btnSearch" name="btnSearch" type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search">
+                    <input id="searchword" name="txtSearch" class="form-control mr-sm-2" autocomplete="off" type="text"
+                        placeholder="Search">
+                    <input style="width: 70px;" type="submit" id="btnSearch" name="btnSearch" type="submit"
+                        class="btn btn-outline-success my-2 my-sm-0" value="Search">
                 </form>
                 <div id="id_suggesstions">
                 </div>
             </div>
-           
+
             <?php
                 if (isset($_SESSION['idAccount'])){
             ?>
-            <div style="padding-left: 20px; z-index: 10;">
+            <div style="padding-left: 20px; z-index: 3;">
                 <div class="dropdown">
                     <a onclick="myFunction()" class="dropbtn">
                         <?php
                             echo $_SESSION['idAccount'] . "&nbsp;<i class='fas fa-caret-down'></i>";
                         ?>
-                        
+
                     </a>
                     <div style="background-color: white;" id="myDropdown" class="dropdown-content">
-                        <a style="cursor: pointer" href="index.php?p=personal-info" class="dropdown-item">Thông tin cá nhân</a>
-                        <a style="cursor: pointer" href="index.php?p=history-issuedbook" class="dropdown-item">Lịch sử mượn - trả sách</a>
+                        <a style="cursor: pointer" href="index.php?p=personal-info" class="dropdown-item">Thông tin cá
+                            nhân</a>
+                        <a style="cursor: pointer" href="index.php?p=history-issuedbook" class="dropdown-item">Lịch sử
+                            mượn - trả sách</a>
                         <a style="cursor: pointer" class="dropdown-item" id="btnChangePwd">Đổi mật khẩu</a>
                         <a style="cursor: pointer" class="dropdown-item" id="btnLogout">Đăng xuất</a>
                     </div>
@@ -72,6 +78,28 @@
                     include 'formlogin.php';
                 }
             ?>
+            <div id="cpModal" class="modal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" style="text-align: left;">Đổi mật khẩu</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <label>Mật khẩu hiện tại</label>
+                            <input type="password" name="old_password" id="old_password" class="form-control" />
+                            <br />
+                            <label>Mật khẩu mới</label>
+                            <input type="password" name="new_password" id="new_password" class="form-control" />
+                            <br />
+                            <label>Xác nhân mật khẩu mới</label>
+                            <input type="password" name="password_confirm" id="password_confirm" class="form-control" />
+                            <br />
+                            <button type="button" name="btnCP" id="btnCP" class="btn btn-primary">Đổi mật khẩu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

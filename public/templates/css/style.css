@@ -117,7 +117,7 @@ img {
     overflow-y: auto;
     overflow-x: hidden;
 }
-#login_button{
+#login_button, #btnCP{
     width: auto !important;
 }
 #imgSuggest {
