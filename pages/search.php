@@ -20,7 +20,7 @@
         <div class="left">
             <div class="topleft">
                 <div class="Category">
-                    <h2><?php echo "Tìm truyện"?></h2>
+                    <h2><?php echo "Tìm sách"?></h2>
                 </div>
             </div>
             <div class="mainleft">
