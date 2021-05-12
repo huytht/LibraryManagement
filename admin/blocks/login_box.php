@@ -1,21 +1,25 @@
 <?php
     if (isset($_POST["login"])) {
         $errors = array();
+        $str = "";
         if (empty($_POST["username"])) {
-            $errors[] = "<li>Vui lòng nhập tên tài khoản </li>";
-        }
+            $errors[] = "Vui lòng nhập tên tài khoản";
+        } else
         if (empty($_POST["password"])) {
-            $errors[] = "<li>Vui lòng nhập mật khẩu</li>";
+            $errors[] = "Vui lòng nhập mật khẩu";
+        } else {
+            if (!loginAdmin($conn, $_POST['username'], md5($_POST['password'])))
+            $errors[] = "Sai tài khoản hoặc mật khẩu";
         }
-        if (!loginAdmin($conn, $_POST['username'], md5($_POST['password'])))
-            $errors[] = "<li>Sai tài khoản hoặc mật khẩu</li>";
         if (empty($errors) && loginAdmin($conn, $_POST['username'], md5($_POST['password']))){
             $_SESSION['username'] = $_POST['username'];
             echo $_POST['username'];
             header('location: index.php');
             exit();
         } else {
-            echo "<script>alert('<ul>". print_r($errors)."</ul>')</script>";
+            foreach ($errors as $error)
+                $str .= $error;
+            echo "<script>alert('".$str."')</script>";    
         }
 
     }
