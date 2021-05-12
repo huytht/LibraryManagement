@@ -154,3 +154,51 @@ img {
     display: flex; 
     justify-content: center;
 }
+/* Menu cấp 3 */
+.menuList{
+    border-radius: 10px;
+}
+.menuList ul{
+    background: #ddd;
+    width: 150px;
+    padding: 0;
+    list-style-type: none;
+    border-bottom: 1px solid white;
+    border-radius: 10px;
+}
+.menuList ul li{
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+    background: #ddd;
+    padding: 0 1em;
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+}
+.menuList ul li a{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    border-radius: 10px;
+}
+.menuList ul li:hover{
+    background: white;
+    transition: ease-in 0.00s;
+    -moz-transition: ease-in 0.00s;
+    -webkit-transition: ease-in 0.00s;
+}
+.menuList .submenu{
+    position: absolute;
+    width: auto;
+    left: 150px;
+    top: 0;
+    display: none;
+}
+.menuList ul li:hover .submenu{
+    display: block;
+    transition: ease-in 0.00s;
+    -moz-transition: ease-in 0.00s;
+    -webkit-transition: ease-in 0.00s;
+}

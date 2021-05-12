@@ -19,25 +19,36 @@
                 <li style="z-index: 999999" class="nav-item dropdown">
                     <a class="nav-link" href="#" id="dropdownId">Thể loại</a>
                     <div class="dropdown-content" aria-labelledby="dropdownId">
-                        <?php
-                            $categories = getDataCategoryList($conn);
-                            foreach ($categories as $category) {
-                        ?>
-                        <a style="background-color: white;"
-                            class="dropdown-item text-danger"><b><?php echo $category["name"] ?></b></a>
-                        <?php
-                                $subcategories = getSubCategoryListById($conn, $category["id"]);
-                                foreach ($subcategories as $subcategory) {
-                                ?>
-                        <a style="background-color: white;" class="dropdown-item"
-                            href="index.php?p=category&id=<?php echo $subcategory["id"] ?>">
-                            <?php echo $subcategory["name"] ?>
+                        <a href="dropdown-item">
+                            <div class="menuList">
+                                <ul>
+                                    <?php
+                                        $categories = getDataCategoryList($conn);
+                                        foreach ($categories as $category) {
+                                    ?>
+                                    <li>
+                                        <a class="dropdown-item text-danger"><b><?php echo $category["name"] ?></b></a>
+                                        <ul class="submenu">
+                                        <?php
+                                            $subcategories = getSubCategoryListById($conn, $category["id"]);
+                                            foreach ($subcategories as $subcategory) {
+                                            ?>
+                                            <li>
+                                                <a style="background-color: white;" class="dropdown-item"
+                                                    href="index.php?p=category&id=<?php echo $subcategory["id"] ?>">
+                                                    <?php echo $subcategory["name"] ?>
+                                                </a>
+                                            </li>
+                                        <?php
+                                            }
+                                        ?>
+                                        </ul>
+                                    </li>
+                                  
+                                    <?php } ?>
+                                </ul>
+                            </div>
                         </a>
-                        <?php
-                            }
-                        ?>
-                        </optgroup>
-                        <?php } ?>
                     </div>
                 </li>
             </ul>
