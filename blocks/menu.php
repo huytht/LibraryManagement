@@ -17,7 +17,7 @@
                         <span class="sr-only">(current)</span></a>
                 </li>
                 <li style="z-index: 999999" class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="dropdownId">Thể loại</a>
+                    <a class="nav-link" href="index.php?p=category&id=all" id="dropdownId">Thể loại</a>
                     <div class="dropdown-content" aria-labelledby="dropdownId">
                         <a href="dropdown-item">
                             <div class="menuList">

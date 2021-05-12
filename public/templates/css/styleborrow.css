@@ -56,7 +56,8 @@
     text-decoration: none;
     
     border-bottom: 2px solid white;
-    
+    color: black;
+    font-weight: bold;
     line-height: 40px;
     display: block;
     text-indent: 10px;
@@ -161,7 +162,6 @@ h5{
     right: 10px;
     transition: all 0.4s;
 
-
 }
 .select-box .options-container.active {
     max-height: 160px;
@@ -196,7 +196,7 @@ h5{
     display: none;
 }
 .bottommain .table-container{
-    background:wheat;
+    background: #E6E6FA;
 }
 
 .bottommain .table-container table{
@@ -205,7 +205,7 @@ h5{
     width: 100%;
 }
 .bottommain .table-container table th, td{
-    border: 2px solid black;
+    border: 1px solid white;
     text-align: center;
 }
 .bottommain .table-container table .pk{
@@ -226,3 +226,4 @@ div.roll{
 div.notification a{
     margin-left: 30px;
 }
+
