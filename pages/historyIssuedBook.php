@@ -48,11 +48,12 @@
                             <table>
                                 <tr>
                                     <th><a>STT</a></th>
+                                    <th><a>Mã mượn</a></th>
                                     <th><a>Mã sách</a></th>
                                     <th><a>Ngày mượn</a></th>
                                     <th><a>Hạn trả</a></th>
                                     <th><a>Trạng thái</a></th>
-                                    <th><a>Tiền phạt</a></th>
+                                    <th><a>Tiền phạt<br>(Tổng của mã mượn)</a></th>
                                 </tr>
                                 <div class="roll">
                                     <?php
@@ -62,6 +63,7 @@
                                     ?>
                                     <tr>
                                         <td><?php echo $stt?></td>
+                                        <td><?php echo $history["id_issued"]?></td>
                                         <td><?php echo $history["isbn"]?></td>
                                         <td><?php echo date("d/m/Y", $history["issues_date"])?></td>
                                         <td><?php echo date("d/m/Y", $history["return_date"])?></td>
