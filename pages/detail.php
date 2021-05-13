@@ -58,11 +58,18 @@
             <div class="book-group">
                 <div class="row">
                     <?php
+                        $arr = array();
                         foreach (json_decode($book['subcategories']) as $val){
                             $books = findRelatedBook($conn, $val);
                             foreach($books as $bookRelated){
                                 if (strcmp($bookRelated['name'], $book['name'])) {
-                        ?>
+                                    if (!in_array($bookRelated, $arr))
+                                        array_push($arr, $bookRelated);
+                                }
+                            }
+                        } 
+                        foreach($arr as $bookRelated){
+                    ?>
                     <div class="col-mb-3">
                         <div style="width: 250px; height: 95%;" class="card card-book mb-3">
                             <img class="card-img-top"
@@ -77,10 +84,8 @@
                         </div>
                     </div>
                     <?php
-                                } else continue;
-                            }
                         }
-                        ?>
+                    ?>
                 </div>
             </div>
         </div>

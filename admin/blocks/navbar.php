@@ -10,7 +10,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item d-none d-sm-inline-block">
-                <img src="public/images/images/logo.PNG" width="100px" height="30px" alt="">
+               <a href="index.php"><img src="public/images/images/logo.PNG" width="100px" height="30px" alt=""></a> 
             </li>
 
         </ul>
