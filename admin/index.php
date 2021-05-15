@@ -134,14 +134,9 @@
 						case 'admin-list':
 							include 'modules/admin/list.php';
 							break;
-						case 'admin-create':
-							include 'modules/admin/create.php';
 							break;
 						case 'admin-update':
 							include 'modules/admin/update.php';
-							break;
-						case 'admin-delete':
-							include 'modules/admin/delete.php';
 							break;
 						//issuedbook_detail
 						case 'issuedbook_detail-list':

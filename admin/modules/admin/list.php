@@ -19,7 +19,6 @@
                     <th>Username</th>
                     <th>Trạng thái</th>
                     <th>Edit</th>
-                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,16 +35,9 @@
                         <td><?php echo $item["username"] ?></td>
                         <td><?php if ($item["status"] == 1) echo "Enable"; else echo "Disable";  ?></td>
                         <td><a href="index.php?p=admin-update&id=<?php echo $item["id"] ?>"><i class="fa fa-edit"></i></a></td>
-                        <td><a onclick="return acceptDelete('Do you really want to delete this account?')" href="index.php?p=admin-delete&id=<?php echo $item["id"] ?>"><i class="fa fa-trash"></i></a></td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
     </div>
-
-    <!-- /.card-body -->
-    <div class="card-footer">
-        <a href="index.php?p=admin-create"><button type="submit" name="create" class="btn btn-primary">Tạo tài khoản</button><a>
-    </div>
-    <!-- /.card-footer-->
 </div>

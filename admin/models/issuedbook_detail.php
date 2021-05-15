@@ -69,7 +69,7 @@
         $sum = 0;
         foreach(getListNotReturn($conn, $id_issued) as $data){
             $book = getBookByISBN($conn, $data["isbn"]);
-            $sum += (10/100 * $book['price'] *  round((strtotime(date("m/d/Y")) - $issued["return_date"]) / (60 * 60 * 24)));
+            $sum += (5/100 * $book['price'] *  round((strtotime(date("m/d/Y")) - $issued["return_date"]) / (60 * 60 * 24)));
         }
         $stmt = $conn->prepare("UPDATE issuedbook SET fine = :fine  WHERE return_date < :now AND id = :id");
         $stmt->bindParam(":fine", $sum, PDO::PARAM_INT);
